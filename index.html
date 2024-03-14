@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Horario do Dia</title>
+</head> 
+<style>
+body/* mudar a cor de fundo da pagina*/
+.quadrado{                                  /*cria o quadrado central da pagina*/
+    background-color: rgb(255, 255, 255);
+    width: 600px;
+    height: 400px;}
+    h1{color: white;}  /* mudar a cor do  titurlo que o padrão é preto */
+    #imagem{
+        width: 300px;
+    height: 300px
+    }
+</style>
+<body onload="carregar()"><center>
+    <h1>Hora do Dia</h1>
+<div class="quadrado" />
+<br>
+<br>
+<div id="msg"> aqui ficara a minha mensagem de horario </div>
+<br>
+<div> 
+    <img src="" alt="" id="imagem" />         
+</div>
+</center>
+</body>
+<script>
+//DIV DA PAG 35 É PARA CONSEGUIR DEIXAR A MENSAGEM DE HORARIO
+//DIV PAG 26 ONLOAD=CARREGAR - SIGNIFICA QUE A FUNCTION CARREGAR JA VAI COMEÇAR A RODAR DIRETO NA PAGINA <CENTER> PARA DEIXAR TUDO CENTRALIZADO
+//DIV CLASS = " QUADRADO" 28 - H1 DEIXA O TEXTO BRANCO
+//#IMAGEM PARA FAZER O QUADRADO BRANCO
+function carregar(){
+    var msg = document.getElementById("msg") // PARA TROCAR O TEXTO DO ID='MSG' DA PAG 31
+
+    var img = document.getElementById("imagem") // PARA CONSEGUIR TROCAR A IMAGEM DA PAG 35
+    var horario = new Date() //PEGAR A DATA DO USUARIO 
+    //var hora = horario.getHours() // PEGA APENAS A HORA PARA EXIBIR E DEFINIR AS IMAGENS E O BACKGROUND
+    var hora = 20
+msg.innerHTML = `Agora são ${hora} horas.` // COMANDO PARA COLOCAR A DIV MSG COM HORA
+
+if (hora >= 0 && hora < 12) {img.src = 'manhã.png' //COMANDO PARA APARECER A IMAGEM TROCANDO  A DIV
+document.body.style.background = '#F1C40F' // COMANDO PARA MUDAR O BACKGROUND COLLOR
+} 
+
+else if (hora >= 12 && hora <= 18 ) { img.src = 'tarde.png' //COMANDO PARA APARECER A IMAGEM TROCANDO  A DIV
+
+document.body.style.background = '#BA4A00' // COMANDO PARA MUDAR O BACKGROUND COLLOR
+} 
+else{ img.src = 'noite.png'  //COMANDO PARA APARECER A IMAGEM TROCANDO  A DIV
+document.body.style.background = '#000000' // COMANDO PARA MUDAR O BACKGROUND COLLOR
+}}
+</script>
+</html>
